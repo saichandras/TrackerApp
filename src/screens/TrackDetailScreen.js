@@ -4,8 +4,8 @@ import {View, StyleSheet, Text} from 'react-native';
 const TrackDetailScreen = () => {
     return(
         <View>
-            <Text>
-                Hello!
+            <Text style={{fontSize: 48}}>
+                Track Detail Screen!
             </Text>
         </View>
     );
