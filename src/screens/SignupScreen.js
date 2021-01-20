@@ -1,27 +1,40 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Text, Input, Button} from 'react-native-elements';
+import React, {useContext} from 'react';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text} from 'react-native-elements';
 import Spacer from "../components/Spacer";
-import StyledButton from "../components/StyledButton";
+import {Context as AuthContext} from '../context/authContext';
+import AuthForm from "../components/AuthForm";
+import NavLink from "../components/NavLink";
 
 const SignupScreen = ({navigation}) => {
+    const {state, signup} = useContext(AuthContext);
+
+    const flashMessage = (message, type) => {
+        message({
+            message: message,
+            type: type
+        });
+    };
+
     return (
         <Spacer>
-            <View style={styles.headingContainer}>
-                <Text h3>Sign Up for Tracker</Text>
-            </View>
-            <Input label='Email'/>
-            <Input label='Password'/>
-            <StyledButton title='Sign Up'/>
+            <AuthForm
+                headerText = 'Sign Up for Tracker'
+                errorMessage = {state.errorMessage}
+                onSubmit = {signup}
+                submitButtonText = 'Sign Up'
+            />
+            <NavLink
+                text = 'Already have an account? Sign in instead!'
+                routeName = 'Signin'
+            />
         </Spacer>
     );
 };
 
-SignupScreen.navigationOptions = (props) => {
+SignupScreen.navigationOptions = () => {
     return {
-        screenOptions: {
-            headerShow: false
-        }
+        headerShown: false,
     }
 };
 
@@ -30,14 +43,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         margin: 10,
     },
-    headingContainer: {
-        marginBottom: 25,
-        marginTop: 15,
-        alignItems: 'center'
-    },
-    button: {
-        marginHorizontal: 5,
-    }
 });
 
 export default SignupScreen;

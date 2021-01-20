@@ -5,7 +5,7 @@ import {Button} from 'react-native-elements';
 const StyledButton = (props) => {
     return(
         <View style={styles.buttonContainer}>
-            <Button type='solid' raised={true} title={props.title}/>
+            <Button type='solid' raised={true} title={props.title} onPress={props.onPress}/>
         </View>
     );
 }

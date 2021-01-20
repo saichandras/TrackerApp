@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     rootContainer:{
         flex: 1,
         justifyContent: 'center',
-        margin: 10,
+        marginHorizontal: 10,
+        marginBottom: 75,
     }
 });
 
