@@ -3,7 +3,8 @@ import trackerApi from "../api/tracker";
 //import {AsyncStorage} from "react-native";
 import {navigate} from "../navigationRef";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import {showMessage} from "react-native-flash-message";
+import {Text, View} from 'react-native';
 
 const authReducer = (state, action) => {
     switch (action.type) {
@@ -39,7 +40,13 @@ const signup = (dispatch) => async ({email, password}) => {
         //Navigate after successful token
         navigate('TrackList');
     } catch (err) {
-        dispatch({type: 'add_error', payload: 'Something went wrong with Sign Up'});
+        //dispatch({type: 'add_error', payload: 'Something went wrong with Sign Up'});
+        showMessage({
+            icon: 'auto',
+            message: "Sign Up Error",
+            description: "Something went wrong with Sign Up",
+            type: "danger",
+        });
     }
 };
 
@@ -51,7 +58,13 @@ const signin = (dispatch) => async ({email, password}) => {
         dispatch({type: 'signin', payload: response.data.token});
         navigate('TrackList');
     } catch (err) {
-        dispatch({type: 'add_error', payload: 'Something went wrong with Sign In'});
+        //dispatch({type: 'add_error', payload: 'Something went wrong with Sign In'});
+        showMessage({
+            icon: 'auto',
+            message: "Sign In Error",
+            description: "Something went wrong with Sign In",
+            type: "danger",
+        });
     }
 };
 

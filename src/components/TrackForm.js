@@ -18,6 +18,7 @@ const TrackForm = () => {
                 <StyledButton title='Start Recording' onPress={() => {
                     if(name.trim() === ''){
                         return showMessage({
+                            icon: 'auto',
                             message: "Please Enter Track Name",
                             type: "warning",
                         });
