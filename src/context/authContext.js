@@ -33,18 +33,19 @@ const tryLocalSignIn = dispatch => async () => {
 
 
 const signup = (dispatch) => async ({email, password}) => {
+    email = email.trim();
     try {
         const response = await trackerApi.post('/signup', {email, password});
         await AsyncStorage.setItem('token', response.data.token);
         dispatch({type: 'signin', payload: response.data.token});
         //Navigate after successful token
         navigate('TrackList');
-    } catch (err) {
+    } catch (error) {
         //dispatch({type: 'add_error', payload: 'Something went wrong with Sign Up'});
         showMessage({
             icon: 'auto',
             message: "Sign Up Error",
-            description: "Something went wrong with Sign Up",
+            description: error.response.data.err,
             type: "danger",
         });
     }
@@ -52,17 +53,18 @@ const signup = (dispatch) => async ({email, password}) => {
 
 
 const signin = (dispatch) => async ({email, password}) => {
+    email = email.trim();
     try {
         const response = await trackerApi.post('/signin', {email, password});
         await AsyncStorage.setItem('token', response.data.token);
         dispatch({type: 'signin', payload: response.data.token});
         navigate('TrackList');
-    } catch (err) {
+    } catch (error) {
         //dispatch({type: 'add_error', payload: 'Something went wrong with Sign In'});
         showMessage({
             icon: 'auto',
             message: "Sign In Error",
-            description: "Something went wrong with Sign In",
+            description: error.response.data.err,
             type: "danger",
         });
     }

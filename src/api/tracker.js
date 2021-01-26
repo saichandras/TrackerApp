@@ -13,8 +13,9 @@ instance.interceptors.request.use(
         }
         return config;
     },
-    (err) => {
-        return Promise.reject(err);
+    (error) => {
+        const err = get(error, ["response", "data", "err"]);
+        return Promise.reject(err || error.message);
     }
 );
 
