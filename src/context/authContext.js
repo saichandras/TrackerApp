@@ -62,7 +62,7 @@ const signout = (dispatch) => async () => {
         dispatch({type: 'signout'});
         navigate('loginFlow');
     }catch(err){
-        console.log(err);
+
     }
 };
 
