@@ -7,7 +7,7 @@ Server files can be found in TrackerApp/track-server/
 
 For running or building the application, the following needs to be done:-
 * Paste the MongoUri (Connect to Application) in TrackerApp/track-server/src/index.js
-* Start the server from TrackerApp/track-server/ by following command-
+* Start the server from TrackerApp/track-server/ by the following command-
 ```
 npm run dev
 ```
