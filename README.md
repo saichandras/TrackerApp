@@ -13,3 +13,4 @@ npm run dev
 ```
 * Change the BaseURL to your localhost or ngrok address in TrackerApp/src/api/tracker.js
 * Finally build the app.
+
