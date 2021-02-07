@@ -1,7 +1,10 @@
 import createDataContext from "./createDataContext";
+import {randomColorGenerator} from "../Functions/ColorsGenerator";
 
 const locationReducer = (state, action) => {
     switch (action.type) {
+        case 'color_change':
+            return {...state, colors: {color1: randomColorGenerator(), color2: randomColorGenerator()}};
         case 'reset':
             return {...state, name: '', locations: []};
         case 'change_name':
@@ -19,6 +22,10 @@ const locationReducer = (state, action) => {
     }
 };
 
+const changeColors = (dispatch) => () => {
+    dispatch({type: 'color_change'});
+};
+
 const changeName = (dispatch) => (name) => {
     dispatch({type: 'change_name', payload: name});
 };
@@ -33,7 +40,7 @@ const stopRecording = (dispatch) => () => {
 
 const addLocation = (dispatch) => (location, recording) => {
     dispatch({type: 'add_current_location', payload: location});
-    if(recording){
+    if (recording) {
         dispatch({type: 'add_location', payload: location});
     }
 };
@@ -44,6 +51,12 @@ const reset = (dispatch) => () => {
 
 export const {Context, Provider} = createDataContext(
     locationReducer,
-    {changeName, startRecording, stopRecording, addLocation, reset},
-    {name: '', recording: false, locations: [], currentLocation: null}
+    {changeName, startRecording, stopRecording, addLocation, reset, changeColors},
+    {
+        name: '',
+        recording: false,
+        locations: [],
+        currentLocation: null,
+        colors: {color1: randomColorGenerator(), color2: randomColorGenerator()}
+    }
 );
