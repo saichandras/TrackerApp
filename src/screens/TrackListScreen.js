@@ -1,17 +1,22 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {View, StyleSheet, Text, FlatList, TouchableOpacity} from 'react-native';
 import {ListItem} from "react-native-elements";
 import {NavigationEvents} from "react-navigation";
 import {Context as TrackContext} from "../context/TrackContext";
 import TouchableScale from 'react-native-touchable-scale';
 import {LinearGradient} from "expo-linear-gradient";
-import {randomColorGenerator} from "../Functions/ColorsGenerator";
+import {Context as LocationContext} from "../context/LocationContext";
 
 const TrackListScreen = ({navigation}) => {
     const {state, fetchTracks} = useContext(TrackContext);
+    const {state: {colors}, changeColors} = useContext(LocationContext);
+
     return (
         <View style={styles.topContainer}>
-            <NavigationEvents onWillFocus={fetchTracks}/>
+            <NavigationEvents onWillFocus={() => {
+                fetchTracks();
+                changeColors();
+            }}/>
             <FlatList
                 style={styles.tracksList}
                 data={state}
@@ -26,9 +31,9 @@ const TrackListScreen = ({navigation}) => {
                             Component={TouchableScale}
                             friction={90}
                             tension={100}
-                            activeScale={0.95} //
+                            activeScale={0.95}
                             linearGradientProps={{
-                                colors: [randomColorGenerator(), randomColorGenerator()],
+                                colors: [colors.color1, colors.color2],
                                 start: {x: 1, y: 0},
                                 end: {x: 0.2, y: 0},
                             }}
@@ -58,7 +63,7 @@ TrackListScreen.navigationOptions = () => {
 const styles = StyleSheet.create({
     topContainer:{
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     title: {
         fontSize: 17.5,
@@ -80,7 +85,18 @@ const styles = StyleSheet.create({
     },
     tracksList:{
         marginTop: 15,
-    }
+    },
+    noTracksContainer:{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white'
+    },
+    noTrackText:{
+        fontSize: 20,
+        color: 'gray',
+        fontWeight: 'bold'
+    },
 });
 
 export default TrackListScreen;

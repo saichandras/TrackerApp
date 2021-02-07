@@ -77,7 +77,12 @@ const signout = (dispatch) => async () => {
         dispatch({type: 'signout'});
         navigate('loginFlow');
     }catch(err){
-
+        showMessage({
+            icon: 'auto',
+            message: "Sign Out Error",
+            description: "Something went wrong, Please try again!",
+            type: "danger",
+        });
     }
 };
 
