@@ -13,6 +13,8 @@ By leveraging the power of React Native, React Context for state management, and
 - **Track Management**: Save your activity once you've finished. Each track is stored with details for future reference.
 - **Tracks List**: A dedicated screen to view all your recorded tracks. Select any track to revisit the journey on the map.
 
+<img src="https://user-images.githubusercontent.com/42498264/107465415-eaac7780-6b27-11eb-86a6-609814764dce.gif" width="200" height="400" /> &nbsp; &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/42498264/107465416-ec763b00-6b27-11eb-874c-ca32f53e2313.gif" width="200" height="400" /> &nbsp; &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/42498264/107465419-eda76800-6b27-11eb-8831-228abdf4d72b.gif" width="200" height="400" /> &nbsp; &nbsp; &nbsp;
+
 ## Technologies
 
 - **Frontend**: Developed with React Native for a seamless native app experience across iOS and Android.
@@ -94,6 +96,3 @@ To set up the frontend application:
 ## Usage
 
 With the installation complete, launch the app on your emulator. New users can sign up to create an account, while existing users can log in. The app allows you to start recording your outdoor activities immediately. Once finished, save your track and view it anytime in the tracks list screen, where you can select any track to view the detailed path you traveled.
-
-
-<img src="https://user-images.githubusercontent.com/42498264/107465415-eaac7780-6b27-11eb-86a6-609814764dce.gif" width="200" height="400" /> &nbsp; &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/42498264/107465416-ec763b00-6b27-11eb-874c-ca32f53e2313.gif" width="200" height="400" /> &nbsp; &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/42498264/107465419-eda76800-6b27-11eb-8831-228abdf4d72b.gif" width="200" height="400" /> &nbsp; &nbsp; &nbsp;
