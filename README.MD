@@ -94,4 +94,6 @@ To set up the frontend application:
 ## Usage
 
 With the installation complete, launch the app on your emulator. New users can sign up to create an account, while existing users can log in. The app allows you to start recording your outdoor activities immediately. Once finished, save your track and view it anytime in the tracks list screen, where you can select any track to view the detailed path you traveled.
-# TrackerApp
+
+
+<img src="https://user-images.githubusercontent.com/42498264/107465415-eaac7780-6b27-11eb-86a6-609814764dce.gif" width="200" height="400" /> &nbsp; &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/42498264/107465416-ec763b00-6b27-11eb-874c-ca32f53e2313.gif" width="200" height="400" /> &nbsp; &nbsp; &nbsp; <img src="https://user-images.githubusercontent.com/42498264/107465419-eda76800-6b27-11eb-8831-228abdf4d72b.gif" width="200" height="400" /> &nbsp; &nbsp; &nbsp;
